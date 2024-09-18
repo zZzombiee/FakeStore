@@ -2,7 +2,9 @@ import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { useQueryState } from "next-usequerystate";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import Product from "./page/[productid]";
 
 const storeHomePage = () => {
   const [storeData, setStoreData] = useState([]);
@@ -74,7 +76,11 @@ const storeHomePage = () => {
       />
       <div className="grid grid-cols-3 gap-4 gap-y-6 mx-auto my-10">
         {slicedData.map((data, index) => {
-          return <Card data={data} key={index} />;
+          return (
+            <Link href={`page/${data.id}`} key={index}>
+              <Card data={data} />
+            </Link>
+          );
         })}
       </div>
       <div className="flex gap-6 mx-auto container justify-center">
