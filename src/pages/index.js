@@ -91,9 +91,6 @@ const storeHomePage = () => {
           Next page
         </button>
       </div>
-      <div>
-        <Footer />
-      </div>
     </div>
   );
 };

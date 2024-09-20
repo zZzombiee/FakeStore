@@ -9,7 +9,7 @@ const Star = (props) => {
     setRating(newRating);
   };
   return (
-    <div className="text-center mx-auto w-fit flex">
+    <div className="text-center justify-center items-center flex">
       {stars.map((star, index) => {
         return (
           <FaStar
