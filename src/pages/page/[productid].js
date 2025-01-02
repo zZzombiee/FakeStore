@@ -2,12 +2,14 @@ import Header from "@/components/Header";
 import Star from "@/components/Star";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { useCart } from "../../components/provider";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const Product = () => {
   const router = useRouter();
   const productID = router.query.productid;
+  const { addToCart } = useCart();
 
   const url = `https://fakestoreapi.com/products/${productID}`;
 
@@ -41,7 +43,9 @@ const Product = () => {
             </p>
           </div>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Add Card</button>
+            <button className="btn btn-primary" onClick={() => addToCart(data)}>
+              Add Card
+            </button>
           </div>
         </div>
       </div>
